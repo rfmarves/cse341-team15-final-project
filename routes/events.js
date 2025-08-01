@@ -4,16 +4,16 @@ const router = express.Router();
 const eventsController = require('../controllers/events');
 const validation = require('../middleware/validate');
 
-const { isAuthenticated } = require('../middleware/authenticate');
+//const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', eventsController.getAll);
 
 router.get('/:id', eventsController.getSingle);
 
-router.post('/', isAuthenticated, validation.saveEvent, eventsController.createEvent);
+router.post('/', eventsController.createEvent);
 
-router.put('/:id', isAuthenticated, validation.saveEvent, eventsController.updateEvent);
+router.put('/:id',  eventsController.updateEvent);
 
-router.delete('/:id', isAuthenticated, eventsController.deleteEvent);
+router.delete('/:id',  eventsController.deleteEvent);
 
 module.exports = router;

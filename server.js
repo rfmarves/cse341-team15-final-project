@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
-const PORT = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 const app = express();
+const mongodb = require('./db/connect');
 
 app.use(express.json());
 
@@ -32,11 +33,9 @@ app.use((req, res, next) => {
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Contained in starting code, evaluate for need. 
 
-app.use("/login", loginRoutes);
-app.use("/userInfo", userInfoRoutes);
+//app.use("/login", loginRoutes);
+//app.use("/userInfo", userInfoRoutes);
 
-app.listen(PORT);
-console.log(`Connected to port ${PORT}`);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 mongodb.initDb((err) => {
