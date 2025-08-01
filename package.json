@@ -1,0 +1,24 @@
+{
+	"name": "Event Ticketing - CSE341 Final Project",
+	"version": "1.0.0",
+	"description": "Final Project for CSE342 class at BYU Pathway",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js",
+		"swagger": "node ./swagger.js"
+	},
+	"author": "Adam Lind, Blessing Mpofu, René Marves, Tomas Fontes",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"dotenv": "^16.0.0",
+		"express": "^4.17.2",
+		"jsonwebtoken": "^9.0.2",
+		"mongodb": "^4.4.0",
+		"swagger-ui-express": "^5.0.1"
+	},
+	"devDependencies": {
+		"swagger-autogen": "^2.23.7"
+	}
+}
