@@ -7,14 +7,56 @@ const {handleErrors} = require("../utilities/utilities");
 const {isAuthenticated} = require("../middleware/authenticate");
 
 // Public routes (no authentication)
-router.get("/", handleErrors(venuesController.getAll));
-router.get("/:id", handleErrors(venuesController.getSingle));
+router.get(
+  "/",
+  /* #swagger.tags = ['Venues']
+     #swagger.description = 'Get all venues'
+  */
+  handleErrors(venuesController.getAll)
+);
+router.get(
+  "/:id",
+  /* #swagger.tags = ['Venues']
+     #swagger.description = 'Get a single venue by ID'
+  */
+  handleErrors(venuesController.getSingle)
+);
 
 // Protected routes (authentication required)
-router.post("/", isAuthenticated, handleErrors(venuesController.createVenue));
-router.put("/:id", isAuthenticated, handleErrors(venuesController.updateVenue));
+router.post(
+  "/",
+  /* #swagger.tags = ['Venues']
+     #swagger.description = 'Create a new venue'
+     #swagger.parameters['body'] = {
+       in: 'body',
+       description: 'Venue data',
+       required: true,
+       schema: { $ref: '#/definitions/Venue' }
+     }
+  */
+  isAuthenticated,
+  handleErrors(venuesController.createVenue)
+);
+
+router.put(
+  "/:id",
+  /* #swagger.tags = ['Venues']
+     #swagger.description = 'Update an existing venue'
+     #swagger.parameters['body'] = {
+       in: 'body',
+       description: 'Updated venue data',
+       required: true,
+       schema: { $ref: '#/definitions/Venue' }
+     }
+  */
+  isAuthenticated,
+  handleErrors(venuesController.updateVenue)
+);
 router.delete(
   "/:id",
+  /* #swagger.tags = ['Venues']
+     #swagger.description = 'Delete a venue'
+  */
   isAuthenticated,
   handleErrors(venuesController.deleteVenue)
 );

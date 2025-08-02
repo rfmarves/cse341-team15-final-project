@@ -5,9 +5,10 @@
     "description": "API for ticking data as project2 for CSE 341",
     "version": "1.0.0"
   },
-  "host": "event-ticketing-cse341-final-project.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
@@ -21,42 +22,12 @@
         }
       }
     },
-    "/login": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/auth": {
       "get": {
         "description": "",
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/auth/github/callback": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/logout": {
-      "get": {
-        "description": "",
-        "responses": {
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -199,7 +170,10 @@
     },
     "/venues/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Venues"
+        ],
+        "description": "Get all venues",
         "responses": {
           "default": {
             "description": ""
@@ -207,7 +181,21 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Venues"
+        ],
+        "description": "Create a new venue",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Venue data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Venue"
+            }
+          }
+        ],
         "responses": {
           "401": {
             "description": "Unauthorized"
@@ -217,7 +205,10 @@
     },
     "/venues/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Venues"
+        ],
+        "description": "Get a single venue by ID",
         "parameters": [
           {
             "name": "id",
@@ -233,13 +224,25 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Venues"
+        ],
+        "description": "Update an existing venue",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated venue data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Venue"
+            }
           }
         ],
         "responses": {
@@ -249,7 +252,10 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Venues"
+        ],
+        "description": "Delete a venue",
         "parameters": [
           {
             "name": "id",
@@ -268,61 +274,32 @@
     "/customers/": {
       "get": {
         "tags": [
-          "Venues"
+          "Customers"
         ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "description": "Get all customers",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
       "post": {
         "tags": [
-          "Venues"
+          "Customers"
         ],
-        "description": "",
+        "description": "Create a new customer",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Customer data",
+            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "venueName": {
-                  "example": "any"
-                },
-                "city": {
-                  "example": "any"
-                },
-                "country": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "gpsCoordinates": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Customer"
             }
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
           "401": {
             "description": "Unauthorized"
           }
@@ -332,12 +309,9 @@
     "/customers/{id}": {
       "get": {
         "tags": [
-          "Venues"
+          "Customers"
         ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "description": "Get a single customer by ID",
         "parameters": [
           {
             "name": "id",
@@ -347,14 +321,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
           "401": {
             "description": "Unauthorized"
           }
@@ -362,9 +328,9 @@
       },
       "put": {
         "tags": [
-          "Venues"
+          "Customers"
         ],
-        "description": "",
+        "description": "Update an existing customer",
         "parameters": [
           {
             "name": "id",
@@ -375,37 +341,14 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Updated customer data",
+            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "venueName": {
-                  "example": "any"
-                },
-                "city": {
-                  "example": "any"
-                },
-                "country": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "gpsCoordinates": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Customer"
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
           "401": {
             "description": "Unauthorized"
           }
@@ -413,9 +356,9 @@
       },
       "delete": {
         "tags": [
-          "Venues"
+          "Customers"
         ],
-        "description": "",
+        "description": "Delete a customer",
         "parameters": [
           {
             "name": "id",
@@ -425,14 +368,6 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
           "401": {
             "description": "Unauthorized"
           }
@@ -504,6 +439,58 @@
           "401": {
             "description": "Unauthorized"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Venue": {
+      "type": "object",
+      "properties": {
+        "venueName": {
+          "type": "string",
+          "example": "Madison Square Garden"
+        },
+        "city": {
+          "type": "string",
+          "example": "New York"
+        },
+        "country": {
+          "type": "string",
+          "example": "United States"
+        },
+        "address": {
+          "type": "string",
+          "example": "4 Pennsylvania Plaza, New York, NY 10001"
+        },
+        "gpsCoordinates": {
+          "type": "string",
+          "example": "40.7505, -73.9934"
+        }
+      }
+    },
+    "Customer": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "John"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Smith"
+        },
+        "email": {
+          "type": "string",
+          "example": "john.smith@email.com"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "example": "+1-555-0101"
+        },
+        "gender": {
+          "type": "string",
+          "example": "Male"
         }
       }
     }
