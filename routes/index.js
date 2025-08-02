@@ -13,7 +13,11 @@ router.get("/", (req, res) => {
   res.send("Hello World! Navigate to /api-docs to view the API documentation.");
 });
 
-router.get("/login", passport.authenticate("github", {scope: ["user:email"]}));
+router.get(
+  "/login",
+  //#swagger.ignore = true
+  passport.authenticate("github", {scope: ["user:email"]})
+);
 
 router.get("/auth", (req, res) => {
   res.send(
@@ -25,6 +29,7 @@ router.get("/auth", (req, res) => {
 
 router.get(
   "/auth/github/callback",
+  //#swagger.ignore = true
   passport.authenticate("github", {
     failureRedirect: "/api-docs",
   }),
@@ -35,19 +40,23 @@ router.get(
   }
 );
 
-router.get("/logout", (req, res) => {
-  req.logout((err) => {
-    if (err) {
-      return res.status(500).json({
-        error: "Logout Error",
-        message: "An error occurred while logging out.",
-        statusCode: 500,
-      });
-    }
-    req.session.destroy();
-    res.redirect("/");
-  });
-});
+router.get(
+  "/logout",
+  //#swagger.ignore = true
+  (req, res) => {
+    req.logout((err) => {
+      if (err) {
+        return res.status(500).json({
+          error: "Logout Error",
+          message: "An error occurred while logging out.",
+          statusCode: 500,
+        });
+      }
+      req.session.destroy();
+      res.redirect("/");
+    });
+  }
+);
 
 // Public API routes (no authentication required)
 router.use("/events", require("./events.js"));

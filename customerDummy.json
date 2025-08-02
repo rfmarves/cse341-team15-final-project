@@ -1,0 +1,72 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john.smith@email.com",
+    "phoneNumber": "+1-555-0101",
+    "gender": "Male"
+  },
+  {
+    "firstName": "Sarah",
+    "lastName": "Johnson",
+    "email": "sarah.johnson@email.com",
+    "phoneNumber": "+1-555-0102",
+    "gender": "Female"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Williams",
+    "email": "michael.williams@email.com",
+    "phoneNumber": "+1-555-0103",
+    "gender": "Male"
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "email": "emily.brown@email.com",
+    "phoneNumber": "+1-555-0104",
+    "gender": "Female"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Davis",
+    "email": "david.davis@email.com",
+    "phoneNumber": "+1-555-0105",
+    "gender": "Male"
+  },
+  {
+    "firstName": "Jessica",
+    "lastName": "Miller",
+    "email": "jessica.miller@email.com",
+    "phoneNumber": "+1-555-0106",
+    "gender": "Female"
+  },
+  {
+    "firstName": "Christopher",
+    "lastName": "Wilson",
+    "email": "christopher.wilson@email.com",
+    "phoneNumber": "+1-555-0107",
+    "gender": "Male"
+  },
+  {
+    "firstName": "Ashley",
+    "lastName": "Moore",
+    "email": "ashley.moore@email.com",
+    "phoneNumber": "+1-555-0108",
+    "gender": "Female"
+  },
+  {
+    "firstName": "Matthew",
+    "lastName": "Taylor",
+    "email": "matthew.taylor@email.com",
+    "phoneNumber": "+1-555-0109",
+    "gender": "Male"
+  },
+  {
+    "firstName": "Amanda",
+    "lastName": "Anderson",
+    "email": "amanda.anderson@email.com",
+    "phoneNumber": "+1-555-0110",
+    "gender": "Female"
+  }
+]
