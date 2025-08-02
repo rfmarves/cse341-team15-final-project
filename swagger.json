@@ -5,18 +5,13 @@
     "description": "API for ticking data as project2 for CSE 341",
     "version": "1.0.0"
   },
-<<<<<<< HEAD
-  "host": "",
-=======
-  "host": "localhost:3000",
->>>>>>> main
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
     "http",
     "https"
   ],
   "paths": {
-<<<<<<< HEAD
     "/": {
       "get": {
         "description": "",
@@ -29,7 +24,44 @@
     },
     "/login": {
       "get": {
-=======
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/github/callback": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/events/": {
       "get": {
         "description": "",
@@ -40,7 +72,6 @@
         }
       },
       "post": {
->>>>>>> main
         "description": "",
         "responses": {
           "default": {
@@ -49,14 +80,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/auth": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-=======
     "/events/{id}": {
       "get": {
         "description": "",
@@ -103,16 +126,11 @@
         "responses": {
           "default": {
             "description": ""
->>>>>>> main
           }
         }
       }
     },
-<<<<<<< HEAD
-    "/auth/github/callback": {
-=======
     "/tickets/": {
->>>>>>> main
       "get": {
         "description": "",
         "responses": {
@@ -120,16 +138,6 @@
             "description": ""
           }
         }
-<<<<<<< HEAD
-      }
-    },
-    "/logout": {
-      "get": {
-        "description": "",
-        "responses": {
-          "500": {
-            "description": "Internal Server Error"
-=======
       },
       "post": {
         "description": "",
@@ -279,6 +287,14 @@
     "/venues/{id}": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -382,7 +398,6 @@
         "responses": {
           "default": {
             "description": ""
->>>>>>> main
           }
         }
       }

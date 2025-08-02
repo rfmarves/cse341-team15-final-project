@@ -1,18 +1,19 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const adminController = require('../controllers/admin');
-const validation = require('../middleware/validate');
+const adminController = require("../controllers/admin");
+const validation = require("../middleware/validate");
+const {handleErrors} = require("../utilities/utilities");
 //const { isAuthenticated } = require('../middleware/authenticate');
 
-router.get('/', adminController.getAll);
+router.get("/", handleErrors(adminController.getAll));
 
-router.get('/:id', adminController.getSingle);
+router.get("/:id", handleErrors(adminController.getSingle));
 
-router.post('/', adminController.createAdmin);
+router.post("/", handleErrors(adminController.createAdmin));
 
-router.put('/:id', adminController.updateAdmin);
+router.put("/:id", handleErrors(adminController.updateAdmin));
 
-router.delete('/:id', adminController.deleteAdmin);
+router.delete("/:id", handleErrors(adminController.deleteAdmin));
 
 module.exports = router;

@@ -1,19 +1,13 @@
-const express = require('express');
+const express = require("express");
 const passport = require("passport");
+const {isAuthenticated} = require("../middleware/authenticate");
 
 const router = express.Router();
 
-// Swagger documentation
-router.use('/', require('./swagger.js'));
+// Swagger documentation (no auth needed)
+router.use("/", require("./swagger.js"));
 
-// Main application routes
-router.use('/events', require('./events.js'));
-router.use('/tickets', require('./tickets.js'));
-router.use('/customers', require('./customers.js'));
-router.use('/venues', require('./venues.js'));
-router.use('/admin', require('./admin.js'));
-
-// Authentication routes
+// Authentication routes (no auth needed)
 router.get("/", (req, res) => {
   // # swagger.tags = ["Hello World!"];
   res.send("Hello World! Navigate to /api-docs to view the API documentation.");
@@ -54,6 +48,15 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
   });
 });
+
+// Public API routes (no authentication required)
+router.use("/events", require("./events.js"));
+router.use("/tickets", require("./tickets.js"));
+router.use("/venues", require("./venues.js"));
+
+// Protected API routes (authentication required for ALL routes)
+router.use("/customers", isAuthenticated, require("./customers.js"));
+router.use("/admin", isAuthenticated, require("./admin.js"));
 
 // 404 Handler - Must be last route
 router.use("*", (req, res) => {

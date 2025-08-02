@@ -1,16 +1,16 @@
-const swaggerAutogen = require('swagger-autogen')();
+const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
   info: {
     title: 'Event Ticketing - CSE341 Final Project"',
-    description: 'API for ticking data as project2 for CSE 341'
+    description: "API for ticking data as project2 for CSE 341",
   },
-  host: 'localhost:3000',
-  schemes: ['http', 'https']
+  host: "localhost:8080",
+  schemes: ["http", "https"],
 };
 
-const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js'];
+const outputFile = "./swagger.json";
+const endpointsFiles = ["./routes/index.js"];
 
 // generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
