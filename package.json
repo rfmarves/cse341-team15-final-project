@@ -1,24 +1,36 @@
 {
-	"name": "Event Ticketing - CSE341 Final Project",
-	"version": "1.0.0",
-	"description": "Final Project for CSE342 class at BYU Pathway",
-	"main": "server.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node server.js",
-		"swagger": "node ./swagger.js"
-	},
-	"author": "Adam Lind, Blessing Mpofu, René Marves, Tomas Fontes",
-	"license": "ISC",
-	"dependencies": {
-		"body-parser": "^1.19.0",
-		"dotenv": "^16.0.0",
-		"express": "^4.17.2",
-		"jsonwebtoken": "^9.0.2",
-		"mongodb": "^4.4.0",
-		"swagger-ui-express": "^5.0.1"
-	},
-	"devDependencies": {
-		"swagger-autogen": "^2.23.7"
-	}
+  "name": "event-ticketing-cse341-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "swagger": "node ./swagger.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.18.2",
+    "mongodb": "^4.4.0",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "swagger-ui-express": "^4.3.0",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^2.5.1",
+    "swagger-autogen": "^2.19.0"
+  }
 }

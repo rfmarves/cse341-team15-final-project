@@ -1,18 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const venuesController = require('../controllers/venues');
+const venuesController = require("../controllers/venues");
+const {handleErrors} = require("../utilities/utilities");
 //const validation = require('../middleware/validate');
-//const { isAuthenticated } = require('../middleware/authenticate');
+const {isAuthenticated} = require("../middleware/authenticate");
 
-router.get('/', venuesController.getAll);
+// Public routes (no authentication)
+router.get("/", handleErrors(venuesController.getAll));
+router.get("/:id", handleErrors(venuesController.getSingle));
 
-router.get('/:id', venuesController.getSingle);
-
-router.post('/', venuesController.createVenue);
-
-router.put('/:id', venuesController.updateVenue);
-
-router.delete('/:id', venuesController.deleteVenue);
+// Protected routes (authentication required)
+router.post("/", isAuthenticated, handleErrors(venuesController.createVenue));
+router.put("/:id", isAuthenticated, handleErrors(venuesController.updateVenue));
+router.delete(
+  "/:id",
+  isAuthenticated,
+  handleErrors(venuesController.deleteVenue)
+);
 
 module.exports = router;
