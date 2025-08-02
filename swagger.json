@@ -218,32 +218,99 @@
     },
     "/venues/": {
       "get": {
+        "tags": [
+          "Venues"
+        ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
+        "tags": [
+          "Venues"
+        ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venueName": {
+                  "example": "any"
+                },
+                "city": {
+                  "example": "any"
+                },
+                "country": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "gpsCoordinates": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/venues/{id}": {
       "get": {
+        "tags": [
+          "Venues"
+        ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
+        "tags": [
+          "Venues"
+        ],
         "description": "",
         "parameters": [
           {
@@ -251,15 +318,48 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venueName": {
+                  "example": "any"
+                },
+                "city": {
+                  "example": "any"
+                },
+                "country": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "gpsCoordinates": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
+        "tags": [
+          "Venues"
+        ],
         "description": "",
         "parameters": [
           {
@@ -270,8 +370,14 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

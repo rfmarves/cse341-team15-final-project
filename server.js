@@ -4,6 +4,11 @@ const port = process.env.PORT || 8080;
 const app = express();
 const mongodb = require('./db/connect');
 
+// Dynamically creates swagger.json file
+// Used to automatially change the server and schemes on swagger.json
+// based on enviroment variables
+require('./swagger.js');
+
 app.use(express.json());
 
 // Routes
@@ -13,22 +18,22 @@ app.use('/', require('./routes/index.js'));
 
 
 // Authetication 
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // Contained in starting code, evaluate for need. 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Methods", "DELETE, PUT");
-	res.header(
-		"Access-Control-Allow-Headers",
-		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
-	);
-	if ("OPTIONS" == req.method) {
-		res.sendStatus(200);
-	} else {
-		next();
-	}
-});
+// 	res.header("Access-Control-Allow-Origin", "*");
+// 	res.header("Access-Control-Allow-Methods", "DELETE, PUT");
+// 	res.header(
+// 		"Access-Control-Allow-Headers",
+// 		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
+// 	);
+// 	if ("OPTIONS" == req.method) {
+// 		res.sendStatus(200);
+// 	} else {
+// 		next();
+// 	}
+// });
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Contained in starting code, evaluate for need. 
