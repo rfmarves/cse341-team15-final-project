@@ -5,9 +5,13 @@ const passport = require("passport");
 const session = require("express-session");
 const githubStrategy = require("passport-github2").Strategy;
 const cors = require("cors");
-
-const app = express();
 const port = process.env.PORT || 8080;
+const app = express();
+
+// Dynamically creates swagger.json file
+// Used to automatially change the server and schemes on swagger.json
+// based on enviroment variables
+require('./swagger.js');
 
 // Middleware to parse JSON request bodies
 app

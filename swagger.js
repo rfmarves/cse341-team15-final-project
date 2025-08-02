@@ -1,12 +1,13 @@
-const swaggerAutogen = require("swagger-autogen")();
+const swaggerAutogen = require('swagger-autogen')();
+require("dotenv").config();
 
 const doc = {
   info: {
     title: 'Event Ticketing - CSE341 Final Project"',
     description: "API for ticking data as project2 for CSE 341",
   },
-  host: "event-ticketing-cse341-final-project.onrender.com",
-  schemes: ["https"],
+  host: process.env.SWAGGER_HOST || 'localhost:3000',
+  schemes: process.env.SWAGGER_SCHEMES ? process.env.SWAGGER_SCHEMES.split(',') : ['http', 'https'],
 };
 
 const outputFile = "./swagger.json";
