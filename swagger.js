@@ -5,8 +5,8 @@ const doc = {
     title: 'Event Ticketing - CSE341 Final Project"',
     description: "API for ticking data as project2 for CSE 341",
   },
-  host: "localhost:8080",
-  schemes: ["http", "https"],
+  host: "event-ticketing-cse341-final-project.onrender.com",
+  schemes: ["https"],
 };
 
 const outputFile = "./swagger.json";
