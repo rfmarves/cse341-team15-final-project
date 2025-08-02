@@ -1,9 +1,18 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 
-// Add your customer routes here
-// Example:
-// router.get('/', (req, res) => {
-//   res.json({ message: 'Customers endpoint' });
-// });
+const customersController = require('../controllers/customers');
+const validation = require('../middleware/validate');
+//const { isAuthenticated } = require('../middleware/authenticate');
+
+router.get('/', customersController.getAll);
+
+router.get('/:id', customersController.getSingle);
+
+router.post('/', customersController.createCustomer);
+
+router.put('/:id', customersController.updateCustomer);
+
+router.delete('/:id', customersController.deleteCustomer);
 
 module.exports = router;

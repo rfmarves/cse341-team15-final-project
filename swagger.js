@@ -5,7 +5,7 @@ const doc = {
     title: 'Event Ticketing - CSE341 Final Project"',
     description: 'API for ticking data as project2 for CSE 341'
   },
-  host: '',
+  host: 'localhost:3000',
   schemes: ['http', 'https']
 };
 

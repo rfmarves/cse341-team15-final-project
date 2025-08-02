@@ -1,9 +1,18 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 
-// Add your venue routes here
-// Example:
-// router.get('/', (req, res) => {
-//   res.json({ message: 'Venues endpoint' });
-// });
+const venuesController = require('../controllers/venues');
+//const validation = require('../middleware/validate');
+//const { isAuthenticated } = require('../middleware/authenticate');
+
+router.get('/', venuesController.getAll);
+
+router.get('/:id', venuesController.getSingle);
+
+router.post('/', venuesController.createVenue);
+
+router.put('/:id', venuesController.updateVenue);
+
+router.delete('/:id', venuesController.deleteVenue);
 
 module.exports = router;

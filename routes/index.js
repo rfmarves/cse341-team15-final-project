@@ -1,16 +1,23 @@
+const express = require('express');
 const passport = require("passport");
 
-const router = require("express").Router();
+const router = express.Router();
 
-// router.use("/", require("../swagger"));
+// Swagger documentation
+router.use('/', require('./swagger.js'));
 
+// Main application routes
+router.use('/events', require('./events.js'));
+router.use('/tickets', require('./tickets.js'));
+router.use('/customers', require('./customers.js'));
+router.use('/venues', require('./venues.js'));
+router.use('/admin', require('./admin.js'));
+
+// Authentication routes
 router.get("/", (req, res) => {
   // # swagger.tags = ["Hello World!"];
   res.send("Hello World! Navigate to /api-docs to view the API documentation.");
 });
-
-router.use("/venues", require("./venues"));
-router.use("/customers", require("./customers"));
 
 router.get("/login", passport.authenticate("github", {scope: ["user:email"]}));
 
