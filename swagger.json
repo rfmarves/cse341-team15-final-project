@@ -5,13 +5,62 @@
     "description": "API for ticking data as project2 for CSE 341",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "event-ticketing-cse341-final-project.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/login": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/github/callback": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/events/": {
       "get": {
         "description": "",
@@ -24,8 +73,8 @@
       "post": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -58,8 +107,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
@@ -74,8 +123,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -92,8 +141,8 @@
       "post": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -126,8 +175,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
@@ -142,13 +191,13 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     },
-    "/customers/": {
+    "/venues/": {
       "get": {
         "description": "",
         "responses": {
@@ -160,13 +209,13 @@
       "post": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     },
-    "/customers/{id}": {
+    "/venues/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -194,8 +243,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
@@ -210,13 +259,13 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     },
-    "/venues/": {
+    "/customers/": {
       "get": {
         "tags": [
           "Venues"
@@ -274,11 +323,13 @@
           },
           "500": {
             "description": "Internal Server Error"
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     },
-    "/venues/{id}": {
+    "/customers/{id}": {
       "get": {
         "tags": [
           "Venues"
@@ -304,6 +355,8 @@
           },
           "500": {
             "description": "Internal Server Error"
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
@@ -353,6 +406,8 @@
           },
           "500": {
             "description": "Internal Server Error"
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
@@ -378,6 +433,8 @@
           },
           "500": {
             "description": "Internal Server Error"
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -386,16 +443,16 @@
       "get": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
       "post": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -412,8 +469,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
@@ -428,8 +485,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
@@ -444,8 +501,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
