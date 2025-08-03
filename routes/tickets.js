@@ -7,19 +7,27 @@ const {handleErrors} = require("../utilities/utilities");
 const {isAuthenticated} = require("../middleware/authenticate");
 
 // Public routes (no authentication)
-router.get("/", handleErrors(ticketsController.getAll));
-router.get("/:id", handleErrors(ticketsController.getSingle));
+router.get("/", 
+    //#swagger.ignore = true
+    handleErrors(ticketsController.getAll));
+router.get("/:id", 
+    //#swagger.ignore = true
+    handleErrors(ticketsController.getSingle));
 
 // Protected routes (authentication required)
-router.post("/", isAuthenticated, handleErrors(ticketsController.createTicket));
+router.post("/", 
+    //#swagger.ignore = true
+    isAuthenticated, handleErrors(ticketsController.createTicket));
 router.put(
-  "/:id",
-  isAuthenticated,
+  "/:id", 
+    //#swagger.ignore = true
+    isAuthenticated,
   handleErrors(ticketsController.updateTicket)
 );
 router.delete(
-  "/:id",
-  isAuthenticated,
+  "/:id",  
+    //#swagger.ignore = true
+    isAuthenticated,
   handleErrors(ticketsController.deleteTicket)
 );
 

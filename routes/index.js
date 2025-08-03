@@ -9,7 +9,7 @@ router.use("/", require("./swagger.js"));
 
 // Authentication routes (no auth needed)
 router.get("/", (req, res) => {
-  // # swagger.tags = ["Hello World!"];
+  // #swagger.tags=['Hello World']
   res.send("Hello World! Navigate to /api-docs to view the API documentation.");
 });
 
@@ -20,7 +20,8 @@ router.get(
 );
 
 router.get("/auth", (req, res) => {
-  res.send(
+    //#swagger.ignore = true
+    res.send(
     req.session.user !== undefined
       ? `Logged in as ${req.session.user.username}`
       : "Logged Out"
