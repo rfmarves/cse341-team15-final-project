@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const doc = {
   info: {
-    title: 'Event Ticketing - CSE341 Final Project"',
+    title: 'Event Ticketing - CSE341 Final Project',
     description: "API for ticking data as project2 for CSE 341",
   },
   host: process.env.SWAGGER_HOST,
@@ -24,6 +24,17 @@ const doc = {
       email: "john.smith@email.com",
       phoneNumber: "+1-555-0101",
       gender: "Male",
+    },
+    Event: {
+      eventName: "Project Management Conference",
+      venueId: "6890b8efd801e1a85b254a2b",
+      startDate: "2025-07-25",
+      endDate: "2025-07-25",
+      startTime: "8:00",
+      endTime: "18:00",
+      capacity: 300,
+      eventType: "Conference",
+      eventPrice: 850,
     },
   },
 };
