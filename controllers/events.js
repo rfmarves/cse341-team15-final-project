@@ -120,7 +120,7 @@ const updateEvent = async (req, res) => {
       .replaceOne({_id: eventId}, event);
     console.log(response);
     if (response.modifiedCount > 0) {
-      res.status(200).json({message: "Venue updated successfully.", ...event});
+      res.status(200).json({message: "Event updated successfully.", ...event});
     } else {
       res
         .status(500)

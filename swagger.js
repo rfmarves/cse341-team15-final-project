@@ -36,6 +36,15 @@ const doc = {
       eventType: "Conference",
       eventPrice: 850,
     },
+    Ticket: {
+      customerId: "6890b8efd801e1a85b254a2f",
+      eventId: "68952f6574b382a86aa5c460",
+      ticketStatus: "Emitted",
+      amountPaid: 850,
+      purchaseDate: "2025-05-01",
+      paymentMethod: "Credit Card",
+      seat: "A1",
+    },
   },
 };
 

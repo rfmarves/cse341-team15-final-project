@@ -128,6 +128,151 @@
         }
       }
     },
+    "/tickets/": {
+      "get": {
+        "tags": [
+          "Tickets"
+        ],
+        "description": "Get all tickets",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tickets"
+        ],
+        "description": "Create a new ticket",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Ticket data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Ticket"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tickets/{id}": {
+      "get": {
+        "tags": [
+          "Tickets"
+        ],
+        "description": "Get a single ticket by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tickets"
+        ],
+        "description": "Update an existing ticket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated ticket data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Ticket"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tickets"
+        ],
+        "description": "Delete a ticket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tickets/use/{id}": {
+      "post": {
+        "tags": [
+          "Tickets"
+        ],
+        "description": "Record an existing ticket as used",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tickets/status/{id}": {
+      "get": {
+        "tags": [
+          "Tickets"
+        ],
+        "description": "Get ticket status by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/venues/": {
       "get": {
         "tags": [
@@ -424,6 +569,39 @@
         "eventPrice": {
           "type": "number",
           "example": 850
+        }
+      }
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "type": "string",
+          "example": "6890b8efd801e1a85b254a2f"
+        },
+        "eventId": {
+          "type": "string",
+          "example": "68952f6574b382a86aa5c460"
+        },
+        "ticketStatus": {
+          "type": "string",
+          "example": "Emitted"
+        },
+        "amountPaid": {
+          "type": "number",
+          "example": 850
+        },
+        "purchaseDate": {
+          "type": "string",
+          "example": "2025-05-01"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "example": "Credit Card"
+        },
+        "seat": {
+          "type": "string",
+          "example": "A1"
         }
       }
     }
