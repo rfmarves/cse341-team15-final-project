@@ -52,6 +52,7 @@ These are the fields contained in the collections:
 
 ### Admin
 
+- username
 - firstName
 - lastName
 - email
