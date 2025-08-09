@@ -2,24 +2,29 @@ const express = require("express");
 const router = express.Router();
 
 const eventsController = require("../controllers/events");
-const validation = require("../middleware/validate");
+const validation = require("../validation/validateEvent");
 const {handleErrors} = require("../utilities/utilities");
 const {isAuthenticated} = require("../middleware/authenticate");
 
 // Public routes (no authentication)
-router.get("/", 
+router.get(
+  "/",
   /* #swagger.tags = ['Events']
      #swagger.description = 'Get all events'
   */
-    handleErrors(eventsController.getAll));
-router.get("/:id", 
+  handleErrors(eventsController.getAll)
+);
+router.get(
+  "/:id",
   /* #swagger.tags = ['Events']
      #swagger.description = 'Get a single event by ID'
   */
-    handleErrors(eventsController.getSingle));
+  handleErrors(eventsController.getSingle)
+);
 
 // Protected routes (authentication required)
-router.post("/", 
+router.post(
+  "/",
   /* #swagger.tags = ['Events']
      #swagger.description = 'Create a new events'
      #swagger.parameters['body'] = {
@@ -29,8 +34,13 @@ router.post("/",
        schema: { $ref: '#/definitions/Event' }
      }
   */
-    isAuthenticated, handleErrors(eventsController.createEvent));
-router.put("/:id", 
+  isAuthenticated,
+  validation.eventValidationRules,
+  validation.validateEventData,
+  handleErrors(eventsController.createEvent)
+);
+router.put(
+  "/:id",
   /* #swagger.tags = ['Events']
      #swagger.description = 'Update an existing event'
      #swagger.parameters['body'] = {
@@ -40,13 +50,17 @@ router.put("/:id",
        schema: { $ref: '#/definitions/Event' }
      }
   */
-    isAuthenticated, handleErrors(eventsController.updateEvent));
+  isAuthenticated,
+  validation.eventValidationRules,
+  validation.validateEventData,
+  handleErrors(eventsController.updateEvent)
+);
 router.delete(
   "/:id",
   /* #swagger.tags = ['Events']
      #swagger.description = 'Delete a event'
   */
-    isAuthenticated,
+  isAuthenticated,
   handleErrors(eventsController.deleteEvent)
 );
 

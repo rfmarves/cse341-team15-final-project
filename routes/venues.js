@@ -3,7 +3,7 @@ const router = express.Router();
 
 const venuesController = require("../controllers/venues");
 const {handleErrors} = require("../utilities/utilities");
-//const validation = require('../middleware/validate');
+const validation = require("../validation/validateVenue");
 const {isAuthenticated} = require("../middleware/authenticate");
 
 // Public routes (no authentication)
@@ -35,6 +35,8 @@ router.post(
      }
   */
   isAuthenticated,
+  validation.venueValidationRules,
+  validation.validateVenueData,
   handleErrors(venuesController.createVenue)
 );
 
@@ -50,6 +52,8 @@ router.put(
      }
   */
   isAuthenticated,
+  validation.venueValidationRules,
+  validation.validateVenueData,
   handleErrors(venuesController.updateVenue)
 );
 router.delete(

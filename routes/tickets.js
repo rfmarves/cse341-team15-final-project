@@ -3,26 +3,29 @@ const router = express.Router();
 
 const ticketsController = require("../controllers/tickets");
 const {handleErrors} = require("../utilities/utilities");
-//const validation = require('../middleware/validate');
+const validation = require('../validation/validateTicket');
 const {isAuthenticated} = require("../middleware/authenticate");
 
 // Public routes (no authentication)
-router.get("/", 
+router.get(
+  "/",
   /* #swagger.tags = ['Tickets']
      #swagger.description = 'Get all tickets'
   */
-    handleErrors(ticketsController.getAll)
-  );
+  handleErrors(ticketsController.getAll)
+);
 
-router.get("/:id", 
+router.get(
+  "/:id",
   /* #swagger.tags = ['Tickets']
      #swagger.description = 'Get a single ticket by ID'
   */
-    handleErrors(ticketsController.getSingle)
-  );
+  handleErrors(ticketsController.getSingle)
+);
 
 // Protected routes (authentication required)
-router.post("/", 
+router.post(
+  "/",
   /* #swagger.tags = ['Tickets']
      #swagger.description = 'Create a new ticket'
      #swagger.parameters['body'] = {
@@ -32,27 +35,32 @@ router.post("/",
        schema: { $ref: '#/definitions/Ticket' }
      }
   */
-    isAuthenticated,
-    handleErrors(ticketsController.createTicket)
-  );
+  isAuthenticated,
+  validation.ticketValidationRules,
+  validation.validateTicketData,
+  handleErrors(ticketsController.createTicket)
+);
 
-router.post("/use/:id",
+router.post(
+  "/use/:id",
   /* #swagger.tags = ['Tickets']
      #swagger.description = 'Record an existing ticket as used'
   */
-    isAuthenticated,
-  handleErrors(ticketsController.useTicket));
+  isAuthenticated,
+  handleErrors(ticketsController.useTicket)
+);
 
-router.get("/status/:id",
+router.get(
+  "/status/:id",
   /* #swagger.tags = ['Tickets']
      #swagger.description = 'Get ticket status by ID'
   */
-    isAuthenticated,
+  isAuthenticated,
   handleErrors(ticketsController.getStatus)
 );
 
 router.put(
-  "/:id", 
+  "/:id",
   /* #swagger.tags = ['Tickets']
      #swagger.description = 'Update an existing ticket'
      #swagger.parameters['body'] = {
@@ -62,16 +70,18 @@ router.put(
        schema: { $ref: '#/definitions/Ticket' }
      }
   */
-    isAuthenticated,
+  isAuthenticated,
+  validation.ticketValidationRules,
+  validation.validateTicketData,
   handleErrors(ticketsController.updateTicket)
 );
 
 router.delete(
-  "/:id",  
+  "/:id",
   /* #swagger.tags = ['Tickets']
      #swagger.description = 'Delete a ticket'
   */
-    // isAuthenticated,
+  isAuthenticated,
   handleErrors(ticketsController.deleteTicket)
 );
 

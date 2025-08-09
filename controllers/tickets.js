@@ -69,18 +69,18 @@ const getStatus = (req, res) => {
       .getDb()
       .db()
       .collection("tickets")
-      .find({_id: ticketId})
-      .toArray((err, lists) => {
-        if (err) {
-          res.status(400).json({message: err});
+      .findOne({_id: ticketId})
+      .then(ticket => {
+        if (!ticket) {
+          res.status(404).json({message: "Ticket not found"});
           return;
         }
-        if (lists.length === 0) {
+        if (ticket.length === 0) {
           res.status(404).json({message: "Ticket not found"});
           return;
         }
         res.setHeader("Content-Type", "application/json");
-        res.status(200).json(lists[0].ticketStatus);
+        res.status(200).json(ticket.ticketStatus);
       });
   } catch (error) {
     res

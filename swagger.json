@@ -54,6 +54,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -103,6 +106,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -157,6 +163,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -206,6 +215,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -225,8 +237,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -302,6 +314,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -351,6 +366,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -405,6 +423,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -454,6 +475,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           }
@@ -501,8 +525,17 @@
           "example": "4 Pennsylvania Plaza, New York, NY 10001"
         },
         "gpsCoordinates": {
-          "type": "string",
-          "example": "40.7505, -73.9934"
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "example": 40.7505
+            },
+            "longitude": {
+              "type": "number",
+              "example": -73.9934
+            }
+          }
         }
       }
     },
@@ -544,11 +577,11 @@
         },
         "startDate": {
           "type": "string",
-          "example": "2025-07-25"
+          "example": "2026-07-25"
         },
         "endDate": {
           "type": "string",
-          "example": "2025-07-25"
+          "example": "2026-07-27"
         },
         "startTime": {
           "type": "string",
@@ -585,7 +618,7 @@
         },
         "ticketStatus": {
           "type": "string",
-          "example": "Emitted"
+          "example": "Active"
         },
         "amountPaid": {
           "type": "number",

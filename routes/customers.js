@@ -2,14 +2,17 @@ const express = require("express");
 const router = express.Router();
 
 const customersController = require("../controllers/customers");
-const validation = require("../middleware/validate");
+const validation = require("../validation/validateCustomer");
 const {handleErrors} = require("../utilities/utilities");
+const {isAuthenticated} = require("../middleware/authenticate");
+
 
 router.get(
   "/",
   /* #swagger.tags = ['Customers']
      #swagger.description = 'Get all customers'
   */
+  isAuthenticated,
   handleErrors(customersController.getAll)
 );
 
@@ -18,6 +21,7 @@ router.get(
   /* #swagger.tags = ['Customers']
      #swagger.description = 'Get a single customer by ID'
   */
+  isAuthenticated,
   handleErrors(customersController.getSingle)
 );
 
@@ -32,6 +36,9 @@ router.post(
        schema: { $ref: '#/definitions/Customer' }
      }
   */
+  isAuthenticated,
+  validation.customerValidationRules,
+  validation.validateCustomerData,
   handleErrors(customersController.createCustomer)
 );
 
@@ -46,6 +53,9 @@ router.put(
        schema: { $ref: '#/definitions/Customer' }
      }
   */
+  isAuthenticated,
+  validation.customerValidationRules,
+  validation.validateCustomerData,
   handleErrors(customersController.updateCustomer)
 );
 
@@ -54,6 +64,7 @@ router.delete(
   /* #swagger.tags = ['Customers']
      #swagger.description = 'Delete a customer'
   */
+  isAuthenticated,
   handleErrors(customersController.deleteCustomer)
 );
 
