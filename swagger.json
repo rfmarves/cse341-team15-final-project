@@ -556,7 +556,7 @@
         },
         "phoneNumber": {
           "type": "string",
-          "example": "+1-555-0101"
+          "example": "+3862345645"
         },
         "gender": {
           "type": "string",

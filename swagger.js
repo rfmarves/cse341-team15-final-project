@@ -25,7 +25,7 @@ const doc = {
       firstName: "John",
       lastName: "Smith",
       email: "john.smith@email.com",
-      phoneNumber: "+1-555-0101",
+      phoneNumber: "+3862345645",
       gender: "Male",
     },
     Event: {
