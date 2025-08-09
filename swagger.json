@@ -11,13 +11,34 @@
     "http",
     "https"
   ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Format: Bearer <JWT>"
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "paths": {
     "/": {
       "get": {
         "tags": [
           "Hello World"
         ],
+        "summary": "Hello world route",
         "description": "",
+        "security": [],
         "responses": {
           "200": {
             "description": "OK"
@@ -30,7 +51,9 @@
         "tags": [
           "Events"
         ],
+        "summary": "Get all events",
         "description": "Get all events",
+        "security": [],
         "responses": {
           "default": {
             "description": ""
@@ -41,7 +64,13 @@
         "tags": [
           "Events"
         ],
+        "summary": "Create a new event",
         "description": "Create a new events",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "body",
@@ -68,7 +97,9 @@
         "tags": [
           "Events"
         ],
+        "summary": "Get a single event by ID",
         "description": "Get a single event by ID",
+        "security": [],
         "parameters": [
           {
             "name": "id",
@@ -87,7 +118,13 @@
         "tags": [
           "Events"
         ],
+        "summary": "Update an existing event",
         "description": "Update an existing event",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -118,7 +155,13 @@
         "tags": [
           "Events"
         ],
+        "summary": "Delete an event",
         "description": "Delete a event",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -139,7 +182,9 @@
         "tags": [
           "Tickets"
         ],
+        "summary": "Get all tickets",
         "description": "Get all tickets",
+        "security": [],
         "responses": {
           "default": {
             "description": ""
@@ -150,7 +195,13 @@
         "tags": [
           "Tickets"
         ],
+        "summary": "Create a new ticket",
         "description": "Create a new ticket",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "body",
@@ -177,7 +228,9 @@
         "tags": [
           "Tickets"
         ],
+        "summary": "Get a single ticket by ID",
         "description": "Get a single ticket by ID",
+        "security": [],
         "parameters": [
           {
             "name": "id",
@@ -196,7 +249,13 @@
         "tags": [
           "Tickets"
         ],
+        "summary": "Update an existing ticket",
         "description": "Update an existing ticket",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -227,7 +286,13 @@
         "tags": [
           "Tickets"
         ],
+        "summary": "Delete a ticket",
         "description": "Delete a ticket",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -248,7 +313,13 @@
         "tags": [
           "Tickets"
         ],
+        "summary": "Mark a ticket as used",
         "description": "Record an existing ticket as used",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -269,7 +340,9 @@
         "tags": [
           "Tickets"
         ],
+        "summary": "Get status of a ticket",
         "description": "Get ticket status by ID",
+        "security": [],
         "parameters": [
           {
             "name": "id",
@@ -290,7 +363,9 @@
         "tags": [
           "Venues"
         ],
+        "summary": "Get all venues",
         "description": "Get all venues",
+        "security": [],
         "responses": {
           "default": {
             "description": ""
@@ -301,7 +376,13 @@
         "tags": [
           "Venues"
         ],
+        "summary": "Create a new venue",
         "description": "Create a new venue",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "body",
@@ -328,7 +409,9 @@
         "tags": [
           "Venues"
         ],
+        "summary": "Get a single venue by ID",
         "description": "Get a single venue by ID",
+        "security": [],
         "parameters": [
           {
             "name": "id",
@@ -347,7 +430,13 @@
         "tags": [
           "Venues"
         ],
+        "summary": "Update an existing venue",
         "description": "Update an existing venue",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -378,7 +467,13 @@
         "tags": [
           "Venues"
         ],
+        "summary": "Delete a venue",
         "description": "Delete a venue",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -399,7 +494,13 @@
         "tags": [
           "Customers"
         ],
+        "summary": "Get all customers",
         "description": "Get all customers",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "401": {
             "description": "Unauthorized"
@@ -410,7 +511,13 @@
         "tags": [
           "Customers"
         ],
+        "summary": "Create a new customer",
         "description": "Create a new customer",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "body",
@@ -437,7 +544,13 @@
         "tags": [
           "Customers"
         ],
+        "summary": "Get a single customer by ID",
         "description": "Get a single customer by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -456,7 +569,13 @@
         "tags": [
           "Customers"
         ],
+        "summary": "Update an existing customer",
         "description": "Update an existing customer",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -487,7 +606,13 @@
         "tags": [
           "Customers"
         ],
+        "summary": "Delete a customer",
         "description": "Delete a customer",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -500,6 +625,390 @@
           "401": {
             "description": "Unauthorized"
           }
+        }
+      }
+    },
+
+    "/admin/": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get all admins",
+        "description": "Get all admins",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "responses": {
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Create a new admin",
+        "description": "Create a new admin",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Admin data",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Admin" }
+          }
+        ],
+        "responses": {
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "/admin/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get admin by ID",
+        "description": "Get admin by ID",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "put": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update an admin",
+        "description": "Update an admin",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated admin data",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Admin" }
+          }
+        ],
+        "responses": {
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Delete an admin",
+        "description": "Delete an admin",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+
+    "/auth/users/login": {
+      "post": {
+        "tags": [
+          "Auth - Users"
+        ],
+        "summary": "User login to receive JWT",
+        "description": "Login with email & password to obtain a JWT.",
+        "security": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TokenResponse"
+            }
+          },
+          "401": {
+            "description": "Invalid credentials",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/auth/users/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth - Users"
+        ],
+        "summary": "Refresh user access token",
+        "description": "Exchange refresh token for a new access token.",
+        "security": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RefreshRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TokenResponse"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/auth/users/logout": {
+      "post": {
+        "tags": [
+          "Auth - Users"
+        ],
+        "summary": "Logout user (invalidate refresh token)",
+        "description": "Logout / invalidate refresh token.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MessageResponse"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/auth/users/me": {
+      "get": {
+        "tags": [
+          "Auth - Users"
+        ],
+        "summary": "Get current user profile",
+        "description": "Get current user profile (requires JWT).",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/auth/admin/login": {
+      "post": {
+        "tags": [
+          "Auth - Admin"
+        ],
+        "summary": "Admin login to receive JWT",
+        "description": "Admin login to obtain a JWT.",
+        "security": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TokenResponse"
+            }
+          },
+          "401": {
+            "description": "Invalid credentials",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/auth/admin/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth - Admin"
+        ],
+        "summary": "Refresh admin access token",
+        "description": "Exchange refresh token for a new admin access token.",
+        "security": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RefreshRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TokenResponse"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/auth/admin/logout": {
+      "post": {
+        "tags": [
+          "Auth - Admin"
+        ],
+        "summary": "Logout admin (invalidate refresh token)",
+        "description": "Logout admin / invalidate refresh token.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MessageResponse"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/auth/admin/me": {
+      "get": {
+        "tags": [
+          "Auth - Admin"
+        ],
+        "summary": "Get current admin profile",
+        "description": "Get current admin profile (requires JWT).",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "deprecated": true
+      }
+    },
+
+    "/login": {
+      "get": {
+        "tags": [
+          "Auth - GitHub"
+        ],
+        "summary": "Start GitHub OAuth flow",
+        "description": "Redirects the user to GitHub for authentication.",
+        "security": [],
+        "produces": ["text/html"],
+        "responses": {
+          "302": { "description": "Redirect to GitHub authorization page" }
+        }
+      }
+    },
+    "/auth/github/callback": {
+      "get": {
+        "tags": [
+          "Auth - GitHub"
+        ],
+        "summary": "GitHub OAuth callback",
+        "description": "Handles the callback from GitHub and establishes a session on success.",
+        "security": [],
+        "produces": ["text/html"],
+        "responses": {
+          "302": { "description": "Redirect after successful/failed login" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/auth": {
+      "get": {
+        "tags": [
+          "Auth - GitHub"
+        ],
+        "summary": "Auth success / current session",
+        "description": "Success page or session info if logged in (depends on your implementation).",
+        "security": [],
+        "produces": ["text/html"],
+        "responses": {
+          "200": { "description": "Authenticated (HTML content)" },
+          "401": { "description": "Not authenticated" }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "tags": [
+          "Auth - GitHub"
+        ],
+        "summary": "Logout (destroy session)",
+        "description": "Destroys the current session and logs out the user.",
+        "security": [],
+        "produces": ["text/html"],
+        "responses": {
+          "302": { "description": "Redirect after logout" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     }
@@ -635,6 +1144,88 @@
         "seat": {
           "type": "string",
           "example": "A1"
+        }
+      }
+    },
+    "Admin": {
+      "type": "object",
+      "properties": {
+        "username": { "type": "string", "example": "alice_admin" },
+        "email": { "type": "string", "example": "admin@example.com" },
+        "role": { "type": "string", "example": "admin" }
+      }
+    },
+    "LoginRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "user@email.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "strongPassword123!"
+        }
+      }
+    },
+    "RefreshRequest": {
+      "type": "object",
+      "properties": {
+        "refreshToken": {
+          "type": "string",
+          "example": "eyJhbGciOi..."
+        }
+      }
+    },
+    "TokenResponse": {
+      "type": "object",
+      "properties": {
+        "accessToken": {
+          "type": "string",
+          "example": "eyJhbGciOi..."
+        },
+        "expiresIn": {
+          "type": "integer",
+          "example": 3600
+        },
+        "tokenType": {
+          "type": "string",
+          "example": "Bearer"
+        }
+      }
+    },
+    "UserProfile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "6890b8efd801e1a85b254a2f"
+        },
+        "email": {
+          "type": "string",
+          "example": "user@email.com"
+        },
+        "role": {
+          "type": "string",
+          "example": "customer"
+        }
+      }
+    },
+    "MessageResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "OK"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Something went wrong"
         }
       }
     }
