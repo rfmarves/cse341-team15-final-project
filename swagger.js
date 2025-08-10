@@ -25,27 +25,6 @@ const doc = {
   security: [{ bearerAuth: [] }],
 
   definitions: {
-    // --- Auth models (additions)
-    LoginRequest: {
-      email: "user@email.com",
-      password: "strongPassword123!",
-    },
-    TokenResponse: {
-      accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-      expiresIn: 3600,
-      tokenType: "Bearer",
-    },
-    RefreshRequest: {
-      refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-    },
-    UserProfile: {
-      id: "6890b8efd801e1a85b254a2f",
-      email: "user@email.com",
-      role: "customer",
-    },
-    MessageResponse: { message: "OK" },
-    ErrorResponse: { message: "Something went wrong" },
-
     // --- Existing domain models
     Venue: {
       venueName: "Madison Square Garden",
@@ -81,6 +60,26 @@ const doc = {
       paymentMethod: "Credit Card",
       seat: "A1",
     },
+    // --- Auth models (additions)
+    LoginRequest: {
+      email: "user@email.com",
+      password: "strongPassword123!",
+    },
+    TokenResponse: {
+      accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      expiresIn: 3600,
+      tokenType: "Bearer",
+    },
+    RefreshRequest: {
+      refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    },
+    UserProfile: {
+      id: "6890b8efd801e1a85b254a2f",
+      email: "user@email.com",
+      role: "customer",
+    },
+    MessageResponse: { message: "OK" },
+    ErrorResponse: { message: "Something went wrong" },
   },
 };
 
