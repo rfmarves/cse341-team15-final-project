@@ -26,7 +26,6 @@ router.get(
 
 router.post(
   "/",
-  "/",
   /* #swagger.tags = ['Admin']
      #swagger.description = 'Create a new administrator'
      #swagger.parameters['body'] = {
