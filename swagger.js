@@ -60,6 +60,14 @@ const doc = {
       paymentMethod: "Credit Card",
       seat: "A1",
     },
+    Admin: {
+      username: "adminUser",
+      firstName: "John",
+      lastName: "Smith",
+      email: "john.smith@email.com",
+      phoneNumber: "+3862345645",
+      gender: "Male",
+    },
     // --- Auth models (additions)
     LoginRequest: {
       email: "user@email.com",
