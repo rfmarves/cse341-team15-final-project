@@ -66,7 +66,7 @@ router.use("/venues", require("./venues.js"));
 
 // Protected API routes (authentication required for ALL routes)
 router.use("/customers", isAuthenticated, require("./customers.js"));
-// router.use("/admin", isAuthenticated, require("./admin.js"));
+ router.use("/admin", isAuthenticated, require("./admin.js"));
 
 // 404 Handler - Must be last route
 router.use("*", (req, res) => {
